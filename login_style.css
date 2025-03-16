@@ -1,0 +1,57 @@
+.name-web-login{
+    z-index: 10;
+    position: absolute;
+    top: 30%;
+    right: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.know_login{
+    margin-top:0px;
+    background-color:transparent;
+    font-size: 20px;
+    color: white;
+    border: 2px solid white;
+    padding: 10px;
+}
+.background {
+    background: linear-gradient(rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0.918)), url("images/shutterstock-706071244.webp");
+    /* background-color: rgba(240, 17, 17, 0.877); */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center everything vertically */
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+}
+
+.login_page {
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.797);
+    padding: 30px;
+    color: white;
+    border-radius: 20px;
+    max-width: 30%;
+    text-align: center; /* Center text inside */
+}
+
+.inputs1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align input fields to the center */
+}
+
+.inputs1 p {
+    margin: 10px;
+}
+
+#name {
+    margin: 10px;
+    width: 100%; /* Make input boxes full width inside container */
+    padding: 10px;
+    border-radius: 10px;
+}
