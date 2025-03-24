@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+</head>
+<body>
+    <div class="task">
+        <h1 style="left:3%;">RapidRelief</h1>
+        <a href="#">Home</a>
+        <a href="#">Volunteer</a>
+        <a href="#">About Us</a>
+        
+        
+        
+        
+        <a href="#">Projects</a>
+        <a href="#">Contact Us</a>
+        
+        <a href="login.html">Login/Sign-up</a>
+        <button class="donate">Donate-Now</button>
+        
+    </div>
+    <div class="name-web">
+        <h1 style="font-size: 70px;font-weight:bolder;color:rgb(245, 240, 240);">Rapid Relief</h1>
+        <button class="know">Know More</button>
+    </div>
+    <!-- <div class="login">
+        <h3 style="text-decoration: underline;font-family:Georgia, 'Times New Roman', Times, serif;text-align:center">Login / Sign-Up</h3>
+        <div class="inputs">
+            <p>Name </p> <input type="text" name="name" id="name" placeholder="Enter your name">
+        </div>
+        <div class="inputs">
+            <p>Email </p> <input type="text" name="name" id="name" placeholder="Enter your Email">
+        </div>
+        <div class="inputs">
+            <p>Password </p> <input type="text" name="name" id="name" placeholder="Enter your Password">
+        </div>
+        <div class="inputs">
+            <p>Confirm Password </p> <input type="text" name="name" id="name" placeholder="Confirm your Password">
+        </div>
+    </div> -->
+    <div class="slideshow">
+
+        <!-- <div class="fades">
+            <img src="images/fire-forest-photo-wallpaper.jpg">
+        </div>
+        <div class="fades">
+            <img src="images/berlin-1156844_1920.jpg">
+        </div>
+        <div class="fades">
+            <img src="images/Image-1-3.jpg">
+        </div>
+        <div class="fades">
+            <img src="images/OIP.jpeg">
+        </div>
+        <div class="fades">
+            <img src="images/shutterstock-706071244.webp">
+        </div> -->
+
+        <div class="AI_BOT" onclick="toggleChatbox()">
+            <img src="images/OIP.jpeg" class="bot_image">
+        </div>
+        <div class="sos">
+            <button class="sos_button" onclick="showLocation()">SOS</button>
+        </div>
+        <div id="chatbox" class="chatbox">
+            <div class="chat-header">
+                <span>AI Chatbot</span>
+                <button onclick="toggleChatbox()">✖</button>
+            </div>
+            <div class="chat-body" id="chatBody"></div>
+            <div class="chat-footer">
+                <input type="text" id="userInput" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+        
+        <!-- Location Dialog -->
+        <div id="locationDialog" class="location-dialog">
+            <h3>Your Current Location</h3>
+            <p>Emergency services can use this information to locate you:</p>
+            <div id="locationCoordinates" class="coordinates">
+                Fetching your location...
+            </div>
+            <p id="locationAddress">Determining address...</p>
+            <button class="copy-btn" onclick="copyLocation()">Copy Location</button>
+            <button class="close-btn" onclick="closeLocation()">Close</button>
+        </div>
+    </div>
+    
+    <!-- <div class="container">
+        <div class="data">
+            
+            <h2>Rapid Relief</h2>
+            
+        </div>
+    </div> -->
+    <div class="marquee">
+        <div class="text">
+            <p>RapidRelief – Bringing hope in emergencies! Support disaster victims, provide food, shelter, and medical aid. Join us in making a difference! Every donation counts. Volunteer today and be a part of the change. Together, we save lives and rebuild communities. Act now for a better tomorrow. Help. Heal. Hope. Every second matters in a crisis—your support makes a real impact. Stand with those in need and offer relief where it's needed most. Rapid response, lasting impact. Your kindness fuels our mission. Donate, volunteer, and spread awareness. Together, we create a world of hope and resilience.</p>
+        </div>
+        
+    </div>
+    <div class="content" >
+        <h1>Rapid Relief</h1>
+        <p class="line"></p>
+        <p>Rapid Relief is a dynamic organization committed to providing swift and effective disaster relief across India.</p>
+        <p>We focus on helping communities recover and rebuild through essential services like food, medical aid, education, shelter, and livelihood support.</p>
+        <p>From Maharashtra to Karnataka and Assam, our recent interventions have transformed thousands of lives, offering hope and resilience in times of crisis.</p>
+    </div>
+    <div class="dis">
+        <h1>Why Disaster Management?</h1>
+        <div class="linewhite"></div>
+        <p>India is one of the most disaster prone countries in the world, 23 out of 28 states are multi-disaster prone regions. 
+            Every year millions of Indians were affected by natural disasters. These disasters leave people traumatised by the death of family, friends and their lives devastated by their loss of livelihood. 
+            The impact is high and it has been increasing dramatically in the last few decades in terms of number of people affected and the length of time they are affected for. This trend is expected to keep rising in coming years.
+            </p>
+            <p>To deal with disasters, there is an urgent need of local institution, which can play a pro-active role in disaster management. This resulted in the establishment of Rapid Response, a registered Indian charity dedicated to provide disaster response and preparedness activities across India.</p>
+    </div>
+    <div class="do">
+        <h1 style="font-size: 40;text-align:center;margin-top:60px">What We Do</h1>
+        <div class="linewhite"></div>
+        <p>Rapid Relief is a dynamic organization committed to providing swift and effective disaster relief across India. We focus on helping communities recover and rebuild through essential services like food, medical aid, education, shelter, and livelihood support. From Maharashtra to Karnataka and Assam, our recent interventions have transformed thousands of lives, offering hope and resilience in times of crisis.</p>
+        <p>
+            Rapid Relief is a dynamic organization committed to providing swift and effective disaster relief across India. We focus on helping communities recover and rebuild through essential services like food, medical aid, education, shelter, and livelihood support. From Maharashtra to Karnataka and Assam, our recent interventions have transformed thousands of lives, offering hope and resilience in times of crisis.
+</p><p>
+At Rapid Relief, we believe in immediate action and long-term rehabilitation. Our dedicated teams work tirelessly to ensure that disaster-stricken regions receive prompt assistance, minimizing suffering and restoring normalcy as quickly as possible. Whether responding to floods, earthquakes, cyclones, or other emergencies, we deploy resources efficiently, leveraging technology and local partnerships to maximize impact.
+</p><p>
+Beyond immediate relief, we invest in disaster preparedness and community resilience programs, empowering individuals with the knowledge and tools needed to withstand future crises. By collaborating with government agencies, NGOs, and volunteers, we create sustainable solutions that go beyond temporary aid, fostering self-reliance and long-term recovery.
+</p>
+    </div>
+    <div class="dis1">
+        <h1>Announcing the Beginning of a Transformative Journey</h1>
+        <div class="linewhite"></div>
+        <h3>JOIN US AS WE EMBARK ON A MISSION OF HOPE AND RELIEF</h3>
+        <p>Together, we are building a future where communities recover stronger and faster.</p>
+    </div>
+    <div class="donate_now">
+        <h1 style="text-align: center;font-size:50px;margin-top:130px">YOUR DONATION CAN CHANGE LIVES</h1>
+        <div class="linewhite"></div>
+        <p>Every donation counts. Your support fuels our mission and helps us reach more people in need.</p>
+        <button class="donate_now_button">Donate Now</button>
+    </div>
+    <!-- <div class="footer2">
+        <div class="footer1">
+            <h1 style="margin-left: 20px;">Rapid Relief</h1>
+            <p>Address: 1234, ABC Road, XYZ City, India</p>
+            <p>Phone: +91 1234567890</p>
+        </div>
+        <div class="footer_links">
+            <h1>   Quick Links</h1> 
+            <a href="#">Home</a>
+            <a href="#">Volunteer</a>
+            <a href="#">About Us</a>
+            <a href="#">Media</a>
+            <a href="#">Contact Us</a>
+        </div>
+            
+    </div> -->
+    <footer class="footer">
+        <div class="footer_section">
+            <h2>Know More</h2>
+            <div class="footer_links">
+                <div class="column">
+                    <a href="#">Home</a>
+                    <a href="#">Our Journey</a>
+                    <a href="#">Leadership Team</a>
+                    <a href="#">Testimonials</a>
+                </div>
+                <div class="column">
+                    <a href="#">Seed Balls Project</a>
+                    <a href="#">Blanket Project</a>
+                    <a href="#">Emergency Fund</a>
+                    <a href="#">Drone for Good</a>
+                </div>
+                <div class="column">
+                    <a href="#">Volunteer</a>
+                    <a href="#">Relief Manual</a>
+                    <a href="#">Agency Mandate</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer_section">
+            <h2>Get in Touch</h2>
+            <p>For all enquiries regarding volunteering, fundraising, and arranging local events, please contact:</p>
+            <p>📧 info@RapidRelief.org.in</p>
+            <div class="social_icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+        </div>
+    </footer>
+    
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,565 @@
+body {
+    margin: 0;
+}
+
+.task{
+    background-color: rgba(0, 0, 0, 0.427);
+    /* background: transparent; */
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    border-radius: 40;
+    width: 100%;
+    height: 12vh;
+    z-index: 1000;
+}
+.task a{
+    text-decoration: none;
+    color: rgb(241, 234, 234);
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px;
+    padding: 10px;
+}
+.task h1{
+    /* background: linear-gradient(90deg,#FDC830,#F37335);
+    -webkit-background-clip: text;
+    text-decoration: transparent; */
+    color: white;
+    padding: 20;
+}
+.donate{
+    background-color:rgb(230, 21, 21);
+    color:white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 20px;
+    border:2px solid red;
+    width:10%;
+    /* height: 30%; */
+    /* padding: 5px; */
+    margin: 8px;
+}
+.container {
+    width: 100%;
+    min-height: 100vh;
+    /* background: linear-gradient(90deg, rgba(11, 80, 199, 0.904), rgba(223, 34, 185, 0.868)), url('images/bg.jpg'); */
+    background: url("images/fire-forest-photo-wallpaper.jpg");
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data {
+    width: 100%;
+    max-width: 540px;
+    background-color: black;
+    /* background:url(web/OIP.jpeg); */
+    opacity: 0.4;
+    /* /* margin: 10px; */
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.data h2{
+    opacity: 1;
+    color: aquamarine;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.slideshow{
+    background: linear-gradient(rgba(0, 0, 0, 0.811),rgba(0, 0, 0, 0.381)),url("back.jpg");
+    position:relative;
+    width: 100%;
+    /* max-width: 1000px; */
+    height: 600px;
+    margin: auto;
+    overflow: hidden;
+    background-size: cover;
+    
+    /* top: 80px; */
+}
+/* .slideshow{
+    position:relative;
+    width: 100%;
+    max-width: 1000px;///
+    height: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.fades{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:80px;
+    left:0;
+
+    opacity: 0;
+    transition: opacity 4s ease-in-out;
+    z-index: 1;
+}
+
+
+.fades img{
+    width: 100%;
+    
+    object-fit:cover;
+}
+
+.fades.active{
+    opacity: 1;
+    z-index: 2;
+} */
+
+/* .fades::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.817);
+} */
+.chatbox {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    z-index: 2000;
+}
+
+/* Chat Header */
+.chat-header {
+    background: black;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px 10px 0 0;
+}
+
+.chat-header button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.chat-body {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* Message Styles */
+.user-message, .bot-message {
+    max-width: 80%;
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 12px;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #e3f2fd;
+    color: #000;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: #f1f1f1;
+    color: #000;
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.chat-footer button {
+    background: #010c18;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.bot_image{
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+    position: fixed;
+    bottom: 20px;
+    right:20px;
+    z-index: 100;
+    border: solid 2px black;
+}
+.sos_button{
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    position: fixed;
+    bottom: 530px;
+    right:20px;
+    z-index: 100;
+    background-color: red;
+    color: white;
+    border: solid 2px black;
+    font-weight: bold;
+    cursor: pointer;
+}
+.name-web {
+    z-index: 10;
+    position: absolute;
+    top: 30%;
+    right: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.know {
+    margin-top:0px;
+    background-color:transparent;
+    font-size: 20px;
+    color: white;
+    border: 2px solid white;
+    padding: 10px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    color:black;
+    width: 60%;
+    height:70vh;
+}
+.content p{
+    font-size: 20px;
+    font-weight: bold;
+}
+.dis{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(230, 21, 21);
+    color:rgb(252, 246, 246);
+    width: 100%;
+    height: 90vh;
+    /* padding: 30px; */
+}
+.dis p{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left:50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+}
+.dis1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(230, 21, 21);
+    color:rgb(252, 246, 246);
+    width: 100%;
+    height: 60vh;
+}
+.donate_now{
+    background: linear-gradient(rgba(0, 0, 0, 0.811),rgba(0, 0, 0, 0.381)),
+    url("images/Damage-Balakot-Pakistan-due-to-earthquake-October-8-2005-Kashmir.webp");
+    width: 100%;
+    background-size: cover;
+    height: 80vh;
+    margin: 0 auto;
+    overflow: hidden;
+    object-fit: cover;
+    color: white;
+}
+.donate_now p{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left:50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    text-align:center;
+}
+.donate_now_button{
+    /* background-color: rgb(230, 21, 21); */
+    background: transparent;
+    color: white;
+    color: white;
+    font-size: 18px;
+    /* font-weight: bold; */
+    border-radius: 5px;
+    border:2px solid white;
+    width:10%;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 45%;
+    
+}
+.footer {
+    background-color: #040404; 
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.footer_section {
+    flex: 1;
+    min-width: 250px;
+    padding: 0 20px;
+}
+
+.footer_links {
+    display: flex;
+    gap: 30px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_links a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.social_icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    color: white;
+}
+
+.social_icons img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+}
+.social_icons i{
+    color: white;
+}
+
+/* }
+.footer2{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.footer2 p{
+    margin: 20px;
+}
+.footer_links{
+    margin: 20px;
+    text-align: center; */
+    /* left:30%;
+    right:50%; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px auto; 
+    width: max-content; 
+    text-align: right; 
+    display: flex;
+    flex-direction: column;
+    align-items:right;
+
+    
+}
+.footer_links a{
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+    margin-top: 10px;
+} */
+.line{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50px;
+    margin: 0 auto;
+    height: 2px;
+    color: red;
+    background-color: red;
+}
+.linewhite {
+    width: 80px;
+    height: 2px;
+    background-color: white;
+    margin: 10px auto;
+}
+.do{
+    background:linear-gradient(rgba(0, 0, 0, 0.811),rgba(0, 0, 0, 0.381)),
+    url("images/devastation-natural-disaster-poignant-portrayal-capturing-emotional-impact-destructive-force-unleashed-by-natures-fury-evoking-profound-sense-loss-resilience-its-aftermath_771426-57317.avif");
+    width: 100%;
+    background-size: cover;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    object-fit: cover;
+    color: white;
+    /* margin-top: 20px; */
+}
+.do p{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left:50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    text-align:center;
+}
+
+.login{
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.418);
+    padding: 30px;
+    color:white;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    border-radius: 20px;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    right: 5px;
+}
+.inputs p{
+    margin: 10px;
+}
+#name{
+    margin: 10px;
+    /* padding: 10px; */
+    /* border-radius: 10px; */
+}
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    position: relative;
+    display: flex; 
+    align-items: center;
+    height: 50px;
+    z-index: 1;
+}
+
+.marquee .text {
+    display: inline-block;
+    white-space: nowrap; 
+    padding-left: 100%;
+    animation: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(10%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Location Dialog Styles */
+.location-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 3000;
+    display: none;
+}
+
+.location-dialog h3 {
+    margin-top: 0;
+    color: #222;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.location-dialog p {
+    margin: 10px 0;
+    color: #333;
+}
+
+.location-dialog .coordinates {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    word-break: break-all;
+}
+
+.location-dialog .close-btn {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    float: right;
+}
+
+.location-dialog .copy-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+}

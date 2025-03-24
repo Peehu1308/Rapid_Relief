@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapid Relief</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login_style.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="task">
+        <h1>RapidRelief</h1>
+        <a href="main.html">Home</a>
+        <a href="#">Volunteer</a>
+        <a href="#">About Us</a>
+        <a href="#">Media</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Login/Sign-up</a>
+        <button class="donate">Donate Now</button>
+    </div>
+
+    <div class="name-web-login">
+        <!-- <h1 style="font-size: 70px; font-weight: bolder; color: rgb(245, 240, 240);">Rapid Relief</h1> -->
+        <!-- <button class="know_login">Know More</button> -->
+    </div>
+
+    <div class="background">
+        <!-- <h1 style="margin-top: 30px;">Sign-Up</h1> -->
+        <div class="login_page">
+            <div class="login1">
+                <h3 style="text-decoration: underline; font-family: Georgia, 'Times New Roman', Times, serif; text-align: center;font-size:30px;">
+                    Login
+                </h3>
+                
+                <!-- <div class="inputs1">
+                    <p>Name</p> 
+                    <input type="text" id="username" placeholder="Enter your name">
+                </div> -->
+                <div class="inputs1">
+                    <p>Email</p> 
+                    <input type="email" id="email" placeholder="Enter your Email">
+                </div>
+                <div class="inputs1">
+                    <p>Password</p> 
+                    <input type="password" id="password" placeholder="Enter your Password">
+                </div>
+                <!-- <div class="inputs1">
+                    <p>Confirm Password</p> 
+                    <input type="password" id="confirm_password" placeholder="Confirm your Password">
+                </div> -->
+
+                <div style="text-align: center; margin-top: 15px;">
+                    <!-- <button onclick="signUp()">Sign Up</button> -->
+                    <button onclick="login()">Login</button>
+                    <!-- <button onclick="logout()">Logout</button> -->
+                </div>
+            </div>
+        </div>
+        <p>Already have an account  <a href="sign_up.html"  style="color:blue;">Sign-up</a></p>
+    </div>
+
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+    
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBt4YWhTd7WUiehREpFsYa06GIiyOomUiw",
+            authDomain: "rapid-relief-99e7a.firebaseapp.com",
+            projectId: "rapid-relief-99e7a",
+            storageBucket: "rapid-relief-99e7a.appspot.com",
+            messagingSenderId: "804869704539",
+            appId: "1:804869704539:web:3af91d9a078886b483e87e",
+            measurementId: "G-J4QH18Y5LP"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+    
+        // Sign-Up Function
+        function signUp() {
+            let name = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirm_password").value;
+    
+            if (name === "" || email === "" || password === "" || confirmPassword === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+    
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("Sign-Up Successful!");
+                    console.log("User Created:", userCredential.user);
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert("Error: " + error.message);
+                });
+        }
+    
+        // Login Function
+        function login() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+    
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("Login Successful!");
+                    console.log("Logged In:", userCredential.user);
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert("Login Failed: " + error.message);
+                });
+        }
+    
+        // Logout Function
+        function logout() {
+            signOut(auth).then(() => {
+                alert("Logged Out Successfully!");
+            }).catch((error) => {
+                console.error(error);
+                alert("Error: " + error.message);
+            });
+        }
+    
+        // Monitor Authentication State
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log("User is logged in:", user);
+            } else {
+                console.log("No user logged in.");
+            }
+        });
+    
+        // Attach functions to window for HTML onclick
+        window.signUp = signUp;
+        window.login = login;
+        window.logout = logout;
+    </script>
+    
+
+</body>
+</html>
