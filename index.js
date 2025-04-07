@@ -16,7 +16,7 @@
 // });
 
 // OpenAI API key - Replace with your actual API key if needed
-const apiKey = "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";
+const apiKey = "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";
 
 // Global variables to store location data
 let currentLocation = {
