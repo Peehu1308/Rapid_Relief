@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - RapidRelief</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Projects page specific styling */
+        .projects-header {
+            text-align: left;
+            padding: 50px 50px 10px 50px;
+            background-color: #fff;
+        }
+        
+        .projects-header h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .projects-header .line {
+            width: 100px;
+            height: 4px;
+            background-color: #e74c3c;
+            margin-bottom: 30px;
+        }
+        
+        .disaster-category {
+            padding: 20px 50px;
+            background-color: #fff;
+        }
+        
+        .disaster-category h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .project-card {
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 15px;
+            background-color: #fff;
+        }
+        
+        .project-info h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+            padding-bottom: 10px;
+        }
+        
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 50px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        .modal-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        
+        .modal-details h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .modal-details p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        @media (max-width: 1024px) {
+            .project-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-header, .disaster-category {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h1 style="left:3%;">RapidRelief</h1>
+        <a href="index.html">Home</a>
+        <a href="#">Volunteer</a>
+        <a href="about.html">About Us</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="#">Contact Us</a>
+        <a href="login.html">Login/Sign-up</a>
+        <button class="donate">Donate-Now</button>
+    </div>
+    
+    <div class="projects-header">
+        <h1>Major Projects</h1>
+        <div class="line"></div>
+    </div>
+    
+    <section class="disaster-category">
+        <h2>Disaster Response</h2>
+        <div class="project-grid">
+            <div class="project-card" onclick="openProjectModal('tamilnadu-floods')">
+                <img src="https://via.placeholder.com/300x200" alt="Tamilnadu Floods 2023" class="project-image">
+                <div class="project-info">
+                    <h3>Tamilnadu Floods 2023</h3>
+                </div>
+            </div>
+            
+            <div class="project-card" onclick="openProjectModal('covid-ii')">
+                <img src="https://via.placeholder.com/300x200" alt="Covid19 Response - II" class="project-image">
+                <div class="project-info">
+                    <h3>Covid19 Response - II</h3>
+                </div>
+            </div>
+            
+            <div class="project-card" onclick="openProjectModal('covid-i')">
+                <img src="https://via.placeholder.com/300x200" alt="Covid19 Response - I" class="project-image">
+                <div class="project-info">
+                    <h3>Covid19 Response - I</h3>
+                </div>
+            </div>
+            
+            <div class="project-card" onclick="openProjectModal('assam-floods')">
+                <img src="https://via.placeholder.com/300x200" alt="Assam Floods 2020" class="project-image">
+                <div class="project-info">
+                    <h3>Assam Floods 2020</h3>
+                </div>
+            </div>
+            
+            <div class="project-card" onclick="openProjectModal('karnataka-floods')">
+                <img src="https://via.placeholder.com/300x200" alt="Karnataka Floods 2019" class="project-image">
+                <div class="project-info">
+                    <h3>Karnataka Floods 2019</h3>
+                </div>
+            </div>
+            
+            <div class="project-card" onclick="openProjectModal('maharashtra-floods')">
+                <img src="https://via.placeholder.com/300x200" alt="Maharashtra Floods 2019" class="project-image">
+                <div class="project-info">
+                    <h3>Maharashtra Floods 2019</h3>
+                </div>
+            </div>
+            
+            <div class="project-card" onclick="openProjectModal('odisha-cyclone')">
+                <img src="https://via.placeholder.com/300x200" alt="Odisha Cyclone 2019" class="project-image">
+                <div class="project-info">
+                    <h3>Odisha Cyclone 2019</h3>
+                </div>
+            </div>
+            
+            <div class="project-card" onclick="openProjectModal('gaja-cyclone')">
+                <img src="https://via.placeholder.com/300x200" alt="Gaja Cyclone 2018" class="project-image">
+                <div class="project-info">
+                    <h3>Gaja Cyclone 2018</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="disaster-category">
+        <h2>Rehabilitation Projects</h2>
+        <div class="project-grid">
+            <div class="project-card" onclick="openProjectModal('kerala-rebuild')">
+                <img src="https://via.placeholder.com/300x200" alt="Kerala Rebuild Initiative" class="project-image">
+                <div class="project-info">
+                    <h3>Kerala Rebuild Initiative</h3>
+                </div>
+            </div>
+            
+            <div class="project-card" onclick="openProjectModal('livelihood-support')">
+                <img src="https://via.placeholder.com/300x200" alt="Livelihood Support Program" class="project-image">
+                <div class="project-info">
+                    <h3>Livelihood Support Program</h3>
+                </div>
+            </div>
+            
+            <div class="project-card" onclick="openProjectModal('school-restoration')">
+                <img src="https://via.placeholder.com/300x200" alt="School Restoration Projects" class="project-image">
+                <div class="project-info">
+                    <h3>School Restoration Projects</h3>
+                </div>
+            </div>
+            
+            <div class="project-card" onclick="openProjectModal('medical-camps')">
+                <img src="https://via.placeholder.com/300x200" alt="Medical Camps Initiative" class="project-image">
+                <div class="project-info">
+                    <h3>Medical Camps Initiative</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Modal -->
+    <div id="project-modal" class="project-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeProjectModal()">&times;</span>
+            <img id="modal-image" src="" alt="" class="modal-image">
+            <div class="modal-details">
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+                <p id="modal-impact"></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="AI_BOT" onclick="toggleChatbox()">
+        <img src="OIP.jpeg" class="bot_image">
+    </div>
+    <div class="sos">
+        <button class="sos_button" onclick="showLocation()">SOS</button>
+    </div>
+    <div id="chatbox" class="chatbox">
+        <div class="chat-header">
+            <span>AI Chatbot</span>
+            <button onclick="toggleChatbox()">✖</button>
+        </div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-footer">
+            <input type="text" id="userInput" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <!-- Location Dialog -->
+    <div id="locationDialog" class="location-dialog">
+        <h3>Your Current Location</h3>
+        <p>Emergency services can use this information to locate you:</p>
+        <div id="locationCoordinates" class="coordinates">
+            Fetching your location...
+        </div>
+        <p id="locationAddress">Determining address...</p>
+        <button class="copy-btn" onclick="copyLocation()">Copy Location</button>
+        <button class="close-btn" onclick="closeLocation()">Close</button>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer_section">
+            <h2>Know More</h2>
+            <div class="footer_links">
+                <div class="column">
+                    <a href="#">Home</a>
+                    <a href="#">Our Journey</a>
+                    <a href="#">Leadership Team</a>
+                    <a href="#">Testimonials</a>
+                </div>
+                <div class="column">
+                    <a href="#">Seed Balls Project</a>
+                    <a href="#">Blanket Project</a>
+                    <a href="#">Emergency Fund</a>
+                    <a href="#">Drone for Good</a>
+                </div>
+                <div class="column">
+                    <a href="#">Volunteer</a>
+                    <a href="#">Relief Manual</a>
+                    <a href="#">Agency Mandate</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer_section">
+            <h2>Get in Touch</h2>
+            <p>For all enquiries regarding volunteering, fundraising, and arranging local events, please contact:</p>
+            <p>📧 info@RapidRelief.org.in</p>
+            <div class="social_icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Project modal functionality
+        const projectData = {
+            'tamilnadu-floods': {
+                title: 'Tamilnadu Floods 2023',
+                image: 'tamil.jpeg',
+                description: 'In December 2023, Tamil Nadu experienced severe flooding due to heavy rainfall from the northeast monsoon. Several districts were severely affected, including Chennai, Thoothukudi, and Tirunelveli. RapidRelief responded immediately with emergency relief operations.',
+                impact: 'Impact: Provided immediate relief to over 5,000 families including food packets, drinking water, and medical supplies. Established temporary shelters for 1,200 displaced individuals and conducted medical camps in 15 affected villages.'
+            },
+            'covid-ii': {
+                title: 'Covid19 Response - II',
+                image: 'covid.jpeg',
+                description: 'During the devastating second wave of COVID-19 in 2021, RapidRelief expanded our response to provide critical support to the healthcare system and vulnerable communities across multiple states in India.',
+                impact: 'Impact: Distributed over 10,000 PPE kits to frontline workers, supplied oxygen concentrators to 25 rural hospitals, and provided food security to 12,000 families who lost their livelihoods during the pandemic.'
+            },
+            'covid-i': {
+                title: 'Covid19 Response - I',
+                image: 'covid 2.jpeg',
+                description: 'When the COVID-19 pandemic first hit India in 2020, RapidRelief launched an immediate response focused on awareness, prevention, and support for the most vulnerable populations.',
+                impact: 'Impact: Reached 50,000 individuals with COVID awareness programs, distributed hygiene kits to 8,000 families, and provided ration support to 15,000 daily wage workers who suddenly lost their income sources.'
+            },
+            'assam-floods': {
+                title: 'Assam Floods 2020',
+                image: 'flood1.jpeg',
+                description: 'The 2020 Assam floods affected over 5 million people across 30 districts. RapidRelief teams were deployed to the worst-hit areas to provide emergency relief and support evacuation efforts.',
+                impact: 'Impact: Reached 7,500 affected families with emergency relief kits, established 5 community kitchens serving 3,000 meals daily, and provided clean drinking water to 20 villages cut off by floodwaters.'
+            },
+            'karnataka-floods': {
+                title: 'Karnataka Floods 2019',
+                image: 'flood3.jpeg',
+                description: 'In August 2019, unprecedented rainfall caused severe flooding in Karnataka, affecting districts including Belagavi, Bagalkot, and Kodagu. RapidRelief responded with immediate humanitarian assistance.',
+                impact: 'Impact: Provided emergency shelter to 3,200 displaced people, distributed 5,000 family relief kits containing essential supplies, and supported the rehabilitation of 12 schools damaged by floods.'
+            },
+            'maharashtra-floods': {
+                title: 'Maharashtra Floods 2019',
+                image: 'assam.jpeg',
+                description: 'The Western Maharashtra floods of 2019 severely impacted Kolhapur, Sangli, and Satara districts. RapidRelief teams conducted rescue operations and provided comprehensive relief support.',
+                impact: 'Impact: Rescued 750 stranded individuals using inflatable boats, distributed clean drinking water to 30,000 people, and provided medical assistance to 5,500 affected individuals through mobile health camps.'
+            },
+            'odisha-cyclone': {
+                title: 'Odisha Cyclone 2019',
+                image: 'flood4.jpeg',
+                description: 'Cyclone Fani made landfall in Odisha in May 2019, causing extensive damage to infrastructure and livelihoods. RapidRelief mobilized teams to provide immediate post-cyclone assistance.',
+                impact: 'Impact: Distributed emergency shelter kits to 2,000 families who lost their homes, supported 35 villages with drinking water purification systems, and provided livelihood recovery support to 1,500 farmers.'
+            },
+            'gaja-cyclone': {
+                title: 'Gaja Cyclone 2018',
+                image: 'flood5.jpeg',
+                description: 'Cyclone Gaja hit Tamil Nadu in November 2018, affecting more than 3.7 million people and causing widespread destruction. RapidRelief launched immediate relief operations in the worst-affected districts.',
+                impact: 'Impact: Supported 3,000 families with emergency relief materials, established temporary learning centers for 1,200 children, and helped 800 farmers restart agricultural activities with seeds and tools.'
+            },
+            'kerala-rebuild': {
+                title: 'Kerala Rebuild Initiative',
+                image: 'flood6.jpeg',
+                description: 'Following the devastating Kerala floods of 2018, RapidRelief initiated a comprehensive rehabilitation program focused on rebuilding homes, restoring livelihoods, and strengthening community resilience.',
+                impact: 'Impact: Reconstructed 150 damaged homes, restored 25 community facilities including schools and health centers, and provided livelihood support to 1,800 affected households.'
+            },
+            'livelihood-support': {
+                title: 'Livelihood Support Program',
+                image: 'flood7.jpeg',
+                description: 'RapidReliefs Livelihood Support Program focuses on helping disaster-affected communities rebuild their economic foundations through skills training, microenterprise development, and market linkages.',
+                impact: 'Impact: Provided vocational training to 2,500 individuals, supported 500 micro-enterprises with startup capital, and established 35 self-help groups for sustainable community development.'
+            },
+            'school-restoration': {
+                title: 'School Restoration Projects',
+                image: 'flood10.jpeg',
+                description: 'RapidRelief works to ensure educational continuity in disaster-affected areas by restoring damaged school buildings, providing educational materials, and supporting teachers and students.',
+                impact: 'Impact: Restored 75 schools across multiple disaster zones, benefiting over 12,000 students. Provided educational materials to 8,000 children and trained 300 teachers in disaster-resilient education practices.'
+            },
+            'medical-camps': {
+                title: 'Medical Camps Initiative',
+                image: 'flood3.jpeg',
+                description: 'Through our Medical Camps Initiative, RapidRelief addresses the healthcare needs of disaster-affected communities by providing medical consultations, medicines, and health awareness programs.',
+                impact: 'Impact: Conducted 200 medical camps serving 40,000 patients, provided essential medicines worth ₹80 lakhs, and trained 500 community health volunteers to support long-term health needs.'
+            }
+        };
+        
+        function openProjectModal(projectId) {
+            const project = projectData[projectId];
+            if (!project) return;
+            
+            document.getElementById('modal-image').src = project.image;
+            document.getElementById('modal-image').alt = project.title;
+            document.getElementById('modal-title').textContent = project.title;
+            document.getElementById('modal-description').textContent = project.description;
+            document.getElementById('modal-impact').textContent = project.impact;
+            
+            document.getElementById('project-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeProjectModal() {
+            document.getElementById('project-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal if clicked outside of content
+        window.onclick = function(event) {
+            const modal = document.getElementById('project-modal');
+            if (event.target === modal) {
+                closeProjectModal();
+            }
+        };
+        
+        // Existing chatbot and location functionality
+        function toggleChatbox() {
+            const chatbox = document.getElementById('chatbox');
+            if (chatbox.style.display === 'block') {
+                chatbox.style.display = 'none';
+            } else {
+                chatbox.style.display = 'block';
+            }
+        }
+        
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const message = userInput.value.trim();
+            if (message) {
+                addMessage('user', message);
+                // Here you would normally process the message and get a response
+                setTimeout(() => {
+                    addMessage('bot', 'Thank you for your message. Our team will get back to you soon.');
+                }, 500);
+                userInput.value = '';
+            }
+        }
+        
+        function addMessage(sender, message) {
+            const chatBody = document.getElementById('chatBody');
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${sender}-message`;
+            messageElement.textContent = message;
+            chatBody.appendChild(messageElement);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+        
+        function showLocation() {
+            const dialog = document.getElementById('locationDialog');
+            dialog.style.display = 'block';
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const coords = position.coords;
+                        document.getElementById('locationCoordinates').textContent = 
+                            `Latitude: ${coords.latitude.toFixed(6)}, Longitude: ${coords.longitude.toFixed(6)}`;
+                        
+                        // Here you would normally use a geocoding service to get the address
+                        document.getElementById('locationAddress').textContent = 
+                            'Address information would be displayed here.';
+                    },
+                    (error) => {
+                        document.getElementById('locationCoordinates').textContent = 
+                            `Error getting location: ${error.message}`;
+                    }
+                );
+            } else {
+                document.getElementById('locationCoordinates').textContent = 
+                    'Geolocation is not supported by this browser.';
+            }
+        }
+        
+        function closeLocation() {
+            document.getElementById('locationDialog').style.display = 'none';
+        }
+        
+        function copyLocation() {
+            const locationText = document.getElementById('locationCoordinates').textContent;
+            navigator.clipboard.writeText(locationText)
+                .then(() => {
+                    alert('Location copied to clipboard');
+                })
+                .catch(err => {
+                    alert('Failed to copy location: ' + err);
+                });
+        }
+    </script>
+</body>
+</html>
